@@ -1,0 +1,223 @@
+Quado eu rodo esse codigo post:
+
+def post_api_navegador(driver: WebDriver, api_url: str, payload: dict):
+    """
+    Faz uma requisição POST para uma API via navegador e retorna o JSON obtido.
+    
+    :param driver: Instância do WebDriver do Selenium.
+    :param api_url: URL da API a ser acessada.
+    :param payload: Dicionário com os dados a serem enviados no corpo da requisição.
+    """
+    try:
+        print("Iniciando requisição POST...")
+        json_data = driver.execute_async_script("""
+            const api_url = arguments[0];
+            const payload = arguments[1];
+            const callback = arguments[arguments.length - 1];
+            fetch(api_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => callback(data))
+            .catch(error => callback({'error': error.toString()}));
+        """, api_url, payload)
+        
+        if 'error' in json_data:
+            print(f"Erro na requisição: {json_data['error']}")
+            return None
+        print("Requisição POST bem-sucedida!")
+        return json_data
+
+    except Exception as e:
+        print("Ocorreu um erro ao fazer a requisição POST via navegador:", e)
+        return None
+
+Aparece isso no terminal, mas o codigo funciona:
+
+[12048:17068:0130/130307.275:ERROR:shared_image_manager.cc(249)] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+
+Quado eu rodo esse codigo post:
+
+def post_api_navegador(driver: WebDriver, api_url: str, payload: dict):
+    """
+    Faz uma requisição POST para uma API via navegador e retorna o JSON obtido.
+    
+    :param driver: Instância do WebDriver do Selenium.
+    :param api_url: URL da API a ser acessada.
+    :param payload: Dicionário com os dados a serem enviados no corpo da requisição.
+    """
+    try:
+        print("Iniciando requisição POST...")
+        json_data = driver.execute_async_script("""
+            const api_url = arguments[0];
+            const payload = arguments[1];
+            const callback = arguments[arguments.length - 1];
+            fetch(api_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => callback(data))
+            .catch(error => callback({'error': error.toString()}));
+        """, api_url, payload)
+        
+        if 'error' in json_data:
+            print(f"Erro na requisição: {json_data['error']}")
+            return None
+        print("Requisição POST bem-sucedida!")
+        return json_data
+
+    except Exception as e:
+        print("Ocorreu um erro ao fazer a requisição POST via navegador:", e)
+        return None
+
+Aparece isso no terminal, mas o codigo funciona:
+
+[12048:17068:0130/130307.275:ERROR:shared_image_manager.cc(249)] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+
+Listar publicacao:
+{
+  "data": {
+      "listaPublicacao": [
+          {
+              "codigoComplementoOrgaoTransito": 0,
+              "codigoDependenciaUnidadeOrganizacional": 0,
+              "codigoEstadoPublicacaoJudicial": 4,
+              "codigoExternoProcessoInteresse": "202404827501",
+              "codigoFaseExternoProcesso": 0,
+              "codigoIdentificadorContrato": 17,
+              "codigoIdentificadorJornalOficial": 23,
+              "codigoOrgaoTransito": 0,
+              "codigoOrigemPublicacaoJuridico": 1,
+              "codigoTipoAtoJuridico": 46,
+              "codigoTipoPublicacao": 1,
+              "codigoTipoRelacionamentoBancoBrasilProcesso": 0,
+              "codigoUnidadeOrganizacionalRecebedor": 18908,
+              "dataAudiencia": "",
+              "dataDivulgacao": "27.01.2025",
+              "dataPublicacao": "28.01.2025",
+              "dataRecebimento": "2025-01-27",
+              "indicarTranferenciaPublicacao": false,
+              "msgExcecao": null,
+              "nomeComplementoOrgaoTransito": null,
+              "nomeEmpresaResponsavel": "BBTS",
+              "nomeJornalOficial": null,
+              "nomeOrgaoTransito": null,
+              "nomeRazaoSocialContrarioPrincipal": null,
+              "nomeTipoJustica": null,
+              "numeroEdicaoJornal": 0,
+              "numeroPaginaJornal": 0,
+              "numeroProcesso": 20250021576,
+              "numeroProcessoCompleto": "20060141459002",
+              "numeroProcessoOrigemSubordinado": 0,
+              "numeroProcessoPrincipal": 20060141459,
+              "numeroPublicacaoJudicial": 18425496,
+              "numeroVariacao": 2,
+              "quantidadeDiaPrazoJuridico": 0,
+              "selected": false,
+              "textoComarca": null,
+              "textoEstadoPublicacaoJudicial": null,
+              "textoFaseExternoProcesso": null,
+              "textoJustificativaDescarte": null,
+              "textoOrigemPublicacaoJuridico": null,
+              "textoPublicacaoJudicial": "Tribunal: STJ\nOrg\u00e3o: SPF COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PRIVADO\nData de disponi",
+              "textoTarefaJuridico": null,
+              "textoTipoAtoJuridico": null,
+              "textoTipoPublicacao": null,
+              "textoUnidadeOrganizacionalRecebedor": null
+          },
+          {
+              "codigoComplementoOrgaoTransito": 0,
+              "codigoDependenciaUnidadeOrganizacional": 0,
+              "codigoEstadoPublicacaoJudicial": 4,
+              "codigoExternoProcessoInteresse": "202404477336",
+              "codigoFaseExternoProcesso": 0,
+              "codigoIdentificadorContrato": 17,
+              "codigoIdentificadorJornalOficial": 23,
+              "codigoOrgaoTransito": 0,
+              "codigoOrigemPublicacaoJuridico": 1,
+              "codigoTipoAtoJuridico": 46,
+              "codigoTipoPublicacao": 1,
+              "codigoTipoRelacionamentoBancoBrasilProcesso": 0,
+              "codigoUnidadeOrganizacionalRecebedor": 18908,
+              "dataAudiencia": "",
+              "dataDivulgacao": "27.01.2025",
+              "dataPublicacao": "28.01.2025",
+              "dataRecebimento": "2025-01-27",
+              "indicarTranferenciaPublicacao": false,
+              "msgExcecao": null,
+              "nomeComplementoOrgaoTransito": null,
+              "nomeEmpresaResponsavel": "BBTS",
+              "nomeJornalOficial": null,
+              "nomeOrgaoTransito": null,
+              "nomeRazaoSocialContrarioPrincipal": null,
+              "nomeTipoJustica": null,
+              "numeroEdicaoJornal": 0,
+              "numeroPaginaJornal": 0,
+              "numeroProcesso": 20250021752,
+              "numeroProcessoCompleto": "20160089600005",
+              "numeroProcessoOrigemSubordinado": 0,
+              "numeroProcessoPrincipal": 20160089600,
+              "numeroPublicacaoJudicial": 18425513,
+              "numeroVariacao": 5,
+              "quantidadeDiaPrazoJuridico": 0,
+              "selected": false,
+              "textoComarca": null,
+              "textoEstadoPublicacaoJudicial": null,
+              "textoFaseExternoProcesso": null,
+              "textoJustificativaDescarte": null,
+              "textoOrigemPublicacaoJuridico": null,
+              "textoPublicacaoJudicial": "Tribunal: STJ\nOrg\u00e3o: SPF COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PRIVADO\nData de disponi",
+              "textoTarefaJuridico": null,
+              "textoTipoAtoJuridico": null,
+              "textoTipoPublicacao": null,
+              "textoUnidadeOrganizacionalRecebedor": null
+          }
+      ],
+      "posicaoLista": 1,
+      "rechamada": "N",
+      "totalDePublicacoes": 21
+  },
+  "messages": [],
+  "status": "OK",
+  "statusCode": 200
+}
+
+"listaPublicacao": [
+{
+  "codigoEstadoPublicacaoJudicial": 4,
+  "codigoExternoProcessoInteresse": "202404827501",
+  "codigoIdentificadorJornalOficial": 23,
+  "codigoUnidadeOrganizacionalRecebedor": 18908,
+  "dataDivulgacao": "27.01.2025",
+  "dataPublicacao": "28.01.2025",
+  "dataRecebimento": "2025-01-27",
+  "nomeEmpresaResponsavel": "BBTS",
+  "numeroProcesso": 20250021576,
+  "numeroProcessoCompleto": "20060141459002",
+  "numeroProcessoPrincipal": 20060141459,
+  "numeroPublicacaoJudicial": 18425496,
+  "numeroVariacao": 2,
+  "textoPublicacaoJudicial": "Tribunal: STJ\nOrg\u00e3o: SPF COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PRIVADO\nData de disponi",
+},
+...
+]
